@@ -1,52 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>barrington rain update</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goofy Image Animation</title>
+  <style>
+    /* Set the background to black */
+    body {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden; /* Prevents scrolling when zooming */
+    }
 
-        /* Combined spin, zoom, and wobble */
-        @keyframes goofy {
-            0% {
-                transform: rotate(0deg) scale(1) skew(0deg, 0deg);
-            }
-            25% {
-                transform: rotate(90deg) scale(1.05) skew(2deg, -2deg);
-            }
-            50% {
-                transform: rotate(180deg) scale(1) skew(0deg, 0deg);
-            }
-            75% {
-                transform: rotate(270deg) scale(0.95) skew(-2deg, 2deg);
-            }
-            100% {
-                transform: rotate(360deg) scale(1) skew(0deg, 0deg);
-            }
-        }
+    /* Add a class to the container */
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      animation: zoomEffect 5s infinite; /* You can adjust this for a faster or slower zoom */
+    }
 
-        .bg-image {
-            background-image: url("img/background.jpg");
-            height: 130%;
-            width: 130%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: fixed;
+    /* Set initial style for the image */
+    .goofy-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: spinEffect 1s linear infinite, zoomEffect 3s alternate infinite; /* Spin faster (1s) and zoom (3s) */
+      transition: transform 0.3s ease-in-out;
+    }
 
-            /* Apply the animation */
-            animation: goofy .2s linear infinite;
-            transform-origin: center center;
-        }
-    </style>
+    /* Spin effect: make it spin faster */
+    @keyframes spinEffect {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Zoom in and out effect */
+    @keyframes zoomEffect {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="bg-image"></div>
+  <div class="container">
+    <img src="your-image.jpg" alt="Goofy Image" class="goofy-image">
+  </div>
 </body>
 </html>

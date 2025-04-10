@@ -21,7 +21,7 @@
       position: relative;
       width: 300px;
       height: 300px;
-      animation: zoomEffect 5s infinite; /* You can adjust this for a faster or slower zoom */
+      animation: zoomEffect 3s infinite; /* Zoom in and out every 3 seconds */
     }
 
     /* Set initial style for the image */
@@ -48,7 +48,13 @@
       0% {
         transform: scale(1);
       }
+      25% {
+        transform: scale(1.2);
+      }
       50% {
+        transform: scale(1.4); /* More zoom */
+      }
+      75% {
         transform: scale(1.2);
       }
       100% {

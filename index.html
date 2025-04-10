@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goofy Spinning Background</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
 
+        /* Combined spin, zoom, and wobble */
+        @keyframes goofy {
+            0% {
+                transform: rotate(0deg) scale(1) skew(0deg, 0deg);
+            }
+            25% {
+                transform: rotate(90deg) scale(1.05) skew(2deg, -2deg);
+            }
+            50% {
+                transform: rotate(180deg) scale(1) skew(0deg, 0deg);
+            }
+            75% {
+                transform: rotate(270deg) scale(0.95) skew(-2deg, 2deg);
+            }
+            100% {
+                transform: rotate(360deg) scale(1) skew(0deg, 0deg);
+            }
+        }
+
+        .bg-image {
+            background-image: url("img/background.jpg");
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: fixed;
+
+            /* Apply the animation */
+            animation: goofy 3s linear infinite;
+            transform-origin: center center;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+</body>
+</html>
